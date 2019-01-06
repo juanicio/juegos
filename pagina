@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+body {
+ background-image: url("http://k33.kn3.net/taringa/D/9/2/E/C/1/irvinn666/8B8.png");
+  background-color: #cccccc;
+  }
+  </style>
+
+<center><font face="arial" size="14">Los juegos de Juan</font>
+<br>
+<br>
+
+<font face="verdana" color="black">Este es una pequeña recopilación de códigos en JavaScript con 3 juegos</font>
+<br>
+<br>
+<font face="verdana" color="black">Este es un proyecto hecho por Juan Eduardo Pérez Casillas para la clase de Sistema Operativo de tercer semestre</font>
+
+<br>
+<br>
+<br>
+<font color="white" size="5"> Selecciona uno!</font>
+<br>
+<br>
+<img src="http://www.stickpng.com/assets/thumbs/58c5804509e8bc1b42c7793f.png" style="width:30px;height:30px;">
+
+<button onclick="myFunction()">Juega adivina el número :D</button>
+
+<img src="https://image.flaticon.com/icons/png/512/42/42073.png" style="width:30px;height:30px;">
+
+<button onclick="tijera()">Juega piedra papel o tijera :D</button>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Hangman-2.png" style="width:30px;height:30px;">
+
+<button onclick="ahorcado()">Juega un ahorcado :D</button>
+
+
+
+<script>
+function myFunction() {
+  function pvp() {
+var numerom = prompt("ingresa el número que el otro jugador va a adivinar")
+numerom = parseInt(numerom); 
+var intentos = 10
+if (numerom >100) {
+alert("No, ese valor no es válido. Ingresa uno que no sea mayor que 100");
+pvp();
+} else {
+while(true){ 
+      var usuario = prompt("Inserta un número entre 1 y 100 para intentar adivinar el número secreto, inserta 0 para dejar el juego"); 
+
+if(usuario == numerom){ 
+  alert("Le atinaste prro ;v");
+  var pitachoide = prompt('quieres volver a jugar? pon 1 para sí, presiona cualquier otra tecla para no');
+  if (pitachoide === '1') {
+  pvp();
+  } else {
+  break;
+}
+}
+else if(usuario == 0){
+alert("ok, luego jugamos :(")
+  break; 
+}
+else if(Math.abs(numerom - usuario)<= 10){
+  alert("CALIENTE, estás cerca del número mágico.");
+	intentos --
+}
+else if(Math.abs(numerom - usuario) >= 10 && numerom < usuario){
+  alert("Frío, estás lejos del número mágico. Ingresa un numero menor");
+  intentos --
+}
+else if(Math.abs(numerom - usuario) >= 10 && numerom > usuario){
+  alert("Frío, estás lejos del número mágico, Ingresa un número mayor");
+  intentos --
+} else {
+alert ("Ups! Algo salió mal'");
+}
+if (intentos === 0) {
+alert("Se acabaron tus intentos, el número era " + numerom);
+var cacota = prompt('quieres volver a jugar? pon 1 para sí, presiona cualquier otra tecla para no');
+  if (cacota === '1') {
+  pvp();
+  } else {
+  break;
+}
+}
+}
+
+} end; //cierra el while
+
+} // cierra la funcion
+
+function cpu() { var max = 100; 
+var min = 1; 
+var numerom = Math.random()*(max-min) + min; 
+numerom = parseInt(numerom); 
+var intento = 10
+
+while(true){ 
+      var usuario = prompt("Inserta un número entre 1 y 100 para intentar adivinar el número secreto, inserta 0 para dejar el juego"); 
+
+if(usuario == numerom){ 
+  alert("Le atinaste prro ;v");
+  var caca2 = prompt('quieres volver a jugar pon 1 para sí, presiona cualquier otra tecla para no');
+  if (caca2 === '1') {
+  cpu();
+  } else {
+  break;
+}
+}
+else if(usuario == 0){
+alert("ok, luego jugamos :(")
+  break; 
+}
+else if(Math.abs(numerom - usuario)<= 10){
+  alert("CALIENTE, estás cerca del número mágico.");
+ intento --
+}
+else if(Math.abs(numerom - usuario) >= 10 && numerom < usuario){
+  alert("Frío, estás lejos del número mágico. Ingresa un numero menor");
+  intento --
+}
+else if(Math.abs(numerom - usuario) >= 10 && numerom > usuario){
+  alert("Frío, estás lejos del número mágico, Ingresa un número mayor");
+  intento --
+} else {
+alert ("Ups! Algo salió mal'");
+}
+if (intento === 0) {
+alert("Se acabaron tus intentos, el número era " + numerom);
+var jas = prompt('quieres volver a jugar? pon 1 para sí, presiona cualquier otra tecla para no');
+  if (jas === '1') {
+  cpu();
+  } else {
+  break;
+  }
+} // ciera el if intento
+}  end; // cierra el while
+} // cierra la función
+var caca = prompt("Hola. Bienvenido a adivina el número. Escribe 1 para jugar con un amigo o escribe 2 para jugar con el ordenador. Escribe cualquier otra cosa para abandonar el juego")
+if (caca === '1') {
+pvp(); 
+} else if (caca === '2') {
+cpu ();
+} else {
+alert("Bueno, jugamos después");
+}
+}
+
+function tijera() {
+let cpu = Math.floor(Math.random()*(4-1) + 1) // 1 es piedra, 2 es papel y 3 es tijera
+let caca = prompt("Bienvenido a piedra, papel o tijera. Elige tu opción");
+if (caca === 'piedra' && cpu === 1){
+
+alert("¡EMPATE! Ambos eligieron piedra");
+} else if (caca === 'piedra' && cpu === 2){
+
+alert("¡PERDISTE! Tu oponente eligió papel y el papel le gana a la piedra ¡Suerte a la próxima!");
+} else if (caca === 'piedra' && cpu === 3) {
+
+alert("¡GANASTE! Aplastaste la tijera del oponente");
+} else if (caca === 'papel' && cpu === 1) {
+
+alert("¡GANASTE! Cubriste con tu papel a la piedra del oponente");
+} else if ( caca === 'papel' && cpu === 2) {
+
+alert("¡EMPATE! Ambos eligieron papel") 
+} else if ( caca === 'papel' && cpu === 3) {
+
+alert ("¡PERDISTE! Tu oponente eligió tijera, y la tijera corta al papel :v");
+} else if (caca === 'tijera' && cpu === 1) {
+
+alert("¡PERDISTE! Tsss la piedra del oponente aplastó tu tijera");
+} else if (caca === 'tijera' && cpu === 2) {
+
+alert("¡GANASTE! Tu tijera despedazó el papel del oponente");
+} else if (caca === 'tijera' && cpu == 3) {
+
+alert("¡EMPATE! Uy, ambos eligieron tijera 7u7");
+} else {
+alert("¡Uy! VALOR NO IDENTIFICADO, verifica que hayas escrito correctamente 'piedra', 'papel' o 'tijera' ésta última sin s al final");
+}
+}
+
+function ahorcado() {
+alert("Bienvenido al ahorcado de países :D");
+    var palabras = ["francia", "alemania", "rumania", "suecia", "chile", "argentina", "españa", "mexico", "cuba", "afganistan", "india", "moldavia", "hungria", "sudan", "sudafrica", "austria", "brasil", "nicaragua", "honduras", "canada", "dinamarca", "rusia", "finlandia", "tailandia", "camboya", "oman", "egipto", "yemen", "marruecos", "argelia", "bulgaria", "turquia", "pakistan", "bangladesh", "nepal", "liberia", "noruega", "togo", "palaos", "fiji"];
+  // Es un array que pone las palabras que se van a intentar adivinar  
+    
+    var pais = palabras[Math.floor(Math.random() * palabras.length)];
+    // aquí se elige aleatoriamente la palabra a adivinar, como puede observar, se "multiplica" por la lenght del array de juego, pero lo que hace es establacer el limite del numero, es decir te pone un numero hasta los posibles que hay de casillas en el array 
+    //el array este te muestra la cantidad de guiones dependiendo de la longitud de la palabra
+    var respuesta = [];
+        for (var i = 0; i < pais.length; i++) {
+            respuesta[i] = "_";
+        }
+    
+    var letrasquefaltan = pais.length;
+        
+        //mientras tengas al menos una letra por completar, te saldrá este mensaje
+        while (letrasquefaltan > 0) {
+            //Te muestra el progreso que llevas y añade los renglones para las letras que llevas
+            alert("Te quedan las siguientes letras:\n" + respuesta.join(" "));
+            
+            //este es el prompt donde metes las letras
+            var usuario = prompt("Adivina una letra :v (ojo, solo una)");
+            if (usuario === null) {
+                //es decir, si la interacción con el prompt es nula, el loop no continúa su ciclo
+                break;
+            } else if (usuario.length !== 1) {
+                alert("Please enter one single letter.");
+            } else {
+                //Actualiza la partida después de cada acierto
+                for (var j = 0; j < pais.length; j++) {
+                    if (pais[j] === usuario) {
+                        respuesta[j] = usuario;
+                        letrasquefaltan--;
+                    }
+                }
+            }
+            //aquí acaba el loop
+        }
+        
+        //enseña la respuesta y acaba el juego
+        alert(respuesta.join(" "));
+        alert("Felicidades! Le atinaste la respuesta correcta es " + pais);
+        }
+</script>
+
+</body>
+</html>
